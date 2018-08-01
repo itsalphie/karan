@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+</head>
+
+<body>
+    <canvas id="myChart"></canvas>
+    <canvas id="myChart2"></canvas>
+    <script>
+        label_names = ["ANDERSEN, BOGI", "ANDERSEN, JULIE KAY", "ANDERSEN, KRISTIAN GRAUGAARD", "ANDERSEN, KRISTIAN GRAUGAARD", "ANDERSEN, KRISTIAN GRAUGAARD", "ANDERSEN, KRISTIAN GRAUGAARD", "ANDERSEN, REBECCA ELLEN", "ANDERSEN, RICHARD A", "APGAR, JOHN R", "APGAR, JOHN R", "APGAR, JOHN R", "ARANETA, MARIA ROSARIO GORREZ", "ARAVIN, ALEXEI A.", "ARBABIAN, AMIN", "ARBOLEDA, VALERIE A", "ARDEHALI, REZA", "ARDELL, JEFFREY L", "ARDELL, JEFFREY L", "ARDELL, JEFFREY L", "ARDITI, MOSHE", "ARDITI, MOSHE", "ARDITI, MOSHE", "ARDITI, MOSHE", "AREIAS, JENNA MARIE", "ARENTOFT, ALYSSA M.", "ARES, MANUEL", "ARISAKA, KATSUSHI", "ARIÑO ESTRADA, GERARD", "ARKIN, MICHELLE R.", "ARMENIAN, SARO", "ARNAOUT, RIMA", "ARNHEIM, NORMAN", "ARNOLD, ARTHUR P", "ARNOLD, ARTHUR P", "ARNOLD, BENJAMIN F", "ARNOLD, COREY WELLS", "ARNOLD, COREY WELLS", "ARNOLD, COREY WELLS", "ARNOLD, DONALD B", "ARNOLD, DONALD B", "ARNOLD, DONALD B", "ARNOLD, EDWARD", "ARNOLD, ELIZABETH MAYFIELD", "ARNOLD, FRANCES H", "ARNOLD, THOMAS DARMODY", "ARON, ADAM ROBERT", "ARON, ADAM ROBERT", "ARONOFF-SPENCER, ELIAH S", "ARONSON, THEODORE", "ARONSON, WILLIAM J", "ARREDONDO, ELVA M", "ARREDONDO, ELVA M", "ARREDONDO, ELVA M", "ARTANDI, STEVEN E", "ARTANDI, STEVEN E", "ARTAZA, JORGE NESTOR", "ARTERBURN, DAVID ERIC", "BARAM, TALLIE Z.", "BARAM, TALLIE Z.", "BARAM, TALLIE Z.", "BARAM, TALLIE Z.", "BARAN, PHIL S", "BARAN, PHIL S", "BARANZINI, SERGIO E", "BARANZINI, SERGIO E", "BARBER, DIANE L", "BARBER, SARAH J", "BARBER, WILLIAM C", "BARBERAN-SOLER, SERGIO", "BARBERAN-SOLER, SERGIO", "BARBOUR, ALAN G.", "BARBOUR, ALAN G.", "BATES, MICHAEL N", "BATEUP, HELEN SHIRLEY", "BATEUP, HELEN SHIRLEY", "BATEUP, HELEN SHIRLEY", "BAUDRY, MICHEL", "BAUER, DOUGLAS C"]
+        label_prices = [169950, 242500, 456970, 556099, 3000000, 295281, 37644, 627359, 487500, 487500, 212063, 522529, 336815, 540296, 387917, 2310000, 107663, 313980, 1013866, 437500, 437500, 262500, 262500, 450000, 145000, 506113, 246267, 78500, 323045, 610389, 180748, 446596, 427228, 232750, 141048, 195568, 598969, 485250, 1960006, 360938, 330000, 964449, 484301, 233058, 203850, 328938, 519693, 162362, 299662, 256935, 289157, 245164, 1192222, 962884, 204089, 278642, 582395, 2000000, 96005, 339409, 246703, 96226, 1152113, 407247, 516273, 317222, 193646, 816615, 632163, 281170, 231750, 77250, 513744, 382705, 235500, 324707, 178750, 577068]
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var gradientStroke = ctx.createLinearGradient(1500, 0, 0, 0);
+        gradientStroke.addColorStop(0, "#80b6f4");
+        gradientStroke.addColorStop(0.2, "#94d973");
+        gradientStroke.addColorStop(0.5, "#fad874");
+        gradientStroke.addColorStop(1, "#f49080");
+        new Chart(ctx, {
+            "type": "bar",
+            "data": {
+                "labels": label_names,
+                "datasets": [{
+                    "label": "Names vs. Salary",
+                    "data": label_prices,
+                    "fill": true,
+                    "backgroundColor": gradientStroke,
+                }]
+            },
+            "options": {
+                "scales": {
+                    "xAxes": [{
+                        "ticks": { "autoSkip": false }
+                    }],
+                    "yAxes": [{
+                        "ticks": { "beginAtZero": true }
+                    }]
+                },
+                chartArea: {
+                    backgroundColor: 'rgba(251, 85, 85, 0.4)'
+                }
+            }
+        });
+    </script>
+    <script>
+        proj_names = ['AN EPIDERMAL ME...', 'POTENTIAL ROLE...', 'CONSORTIUM FOR...', 'SYSTEMS BIOLOGY...', 'CONSORTIUM FOR...', 'ANALYSIS OF ZIK...', 'THE ROLE OF THE...', 'COGNITIVE NEURA...', 'DETERMINANTS OF...', 'ANTIGEN-SPECIFI...', 'ROLE OF FOLLICU...', 'DIABETES PREVEN...', 'MOLECULAR MECHA...', 'A WIRELESS, IMP...', 'UNRAVELING CORR...', 'EXPLORING HETER...', 'DISTRIBUTED ELE...', 'DISTRIBUTED ELE...', 'BIOELECTRIC MON...', 'ROLE OF IL-1 IN...', 'INTERACTION WIT...', 'ATHEROSCLEROSIS...', 'INNATE IMMUNITY...', 'IMPLEMENTATION...', 'PREDICTING RISK...', 'STRUCTURE/FUNCT...', 'TRANS-SHEET ILL...', 'POTENTIAL OF CE...', 'TRANSLATIONAL S...', 'REDUCING RISK O...', 'GENETICS AND ST...', 'GENETIC ANALYSI...', 'GENETIC MECHANI...', 'DISCRIMINATING...', 'NEW SEROLOGICAL...', 'PREDICTING THE...', 'MHEALTH FOR HEA...', 'A MACHINE LEARN...', 'DYNAMIC MAPPING...', 'MOLECULAR PROBE...', 'RECOMBINANT ANT...', 'PREDOCTORAL BIO...', 'SMAD3-SOX17 ANG...', 'HOW INHIBITORY...', 'STOPPING BEHAVI...', 'APPLYING INNOVA...', 'DEVELOPING AND...', '2/2 SDSU/UCSD C...', 'REVERSING CELLU...', 'PROGRAM IN TRAN...', 'MOVING TO HEALT...', 'FRAGMENTED EARL...', 'EPILEPTOGENESIS...', 'EPILEPTOGENESIS...', 'EPILEPSY RESEAR...', 'SCALABLE SYNTHE...', 'SCALABLE SYNTHE...', 'POST GWAS APPRO...', 'THE GENETIC BAS...', 'REGULATION OF E...', 'STEREOTYPE THRE...', 'LOW DOSE RAPID...', 'MIR-SEQ: HIGHLY...', 'HIGHLY ACCURATE...', 'DEVELOPMENT OF...', 'EVOLUTION AND P...', 'INVESTIGATION O...', 'THE IMPACT OF T...', 'CELL TYPE-SPECI...', 'ELUCIDATING THE...', 'DEVELOPMENT OF...', 'ATYPICAL FEMORA...']
+        start_dates = ['05 01 2017', '07 01 2016', '02 01 2018', '02 01 2018', '02 01 2018', '01 01 2018', '09 01 2016', '04 01 2004', '04 01 1998', '12 01 2015', '04 01 2016', '09 01 1994', '06 01 2011', '04 01 2018', '09 01 2017', '09 01 2014', '09 01 2017', '09 01 2015', '09 01 2017', '03 01 2008', '02 01 2016', '07 01 2016', '03 01 2017', '09 01 2015', '04 01 2018', '07 01 1988', '09 01 2017', '09 01 2017', '09 01 2013', '07 01 2015', '09 01 2015', '09 01 1985', '06 01 2014', '09 01 2017', '06 01 2015', '06 01 2018', '09 01 2017', '05 01 2018', '09 01 2014', '05 01 2013', '09 01 2014', '07 01 2015', '04 01 2016', '04 01 2009', '05 01 2018', '02 01 2016', '09 01 2017', '12 01 2007', '09 01 2015', '07 01 2014', '09 01 2017', '06 01 2013', '04 01 1997', '04 01 1997', '07 01 2003', '04 01 2016', '04 01 2016', '09 01 2014', '09 01 2017', '07 01 2015', '08 01 2017', '06 01 2014', '03 01 2015', '07 01 2017', '02 01 2018', '05 01 2018', '09 01 2015', '09 01 2017', '01 01 2017', '05 01 2016', '07 01 2015', '03 01 2016']
+        end_dates = ['03 01 2019', '09 01 2018', '01 01 2023', '01 01 2023', '01 01 2023', '12 01 2019', '08 01 2018', '03 01 2021', '04 01 2020', '11 01 2020', '03 01 2019', '01 01 2021', '12 01 2019', '01 01 2022', '08 01 2022', '06 01 2019', '07 01 2018', '07 01 2018', '06 01 2021', '01 01 2021', '01 01 2021', '06 01 2018', '02 01 2019', '08 01 2020', '03 01 2021', '07 01 2018', '08 01 2019', '06 01 2019', '02 01 2019', '06 01 2020', '08 01 2020', '08 01 2019', '05 01 2019', '08 01 2019', '05 01 2020', '05 01 2020', '08 01 2019', '02 01 2023', '07 01 2019', '04 01 2019', '07 01 2019', '06 01 2020', '03 01 2020', '05 01 2019', '04 01 2023', '12 01 2018', '08 01 2018', '08 01 2020', '08 01 2022', '06 01 2019', '06 01 2022', '04 01 2019', '07 01 2019', '07 01 2019', '06 01 2019', '03 01 2021', '03 01 2021', '07 01 2019', '06 01 2021', '06 01 2019', '04 01 2019', '11 01 2018', '01 01 2021', '04 01 2019', '01 01 2020', '04 01 2020', '08 01 2019', '08 01 2019', '12 01 2018', '02 01 2021', '06 01 2018', '02 01 2021']
+
+        start_epoch = []
+        end_epoch = []
+        diff_epoch = []
+        for (var i = 0; i < start_dates.length; i++) {
+            start_epoch.push(moment(start_dates[i], 'MM DD YYYY').valueOf())
+            end_epoch.push(moment(end_dates[i], 'MM DD YYYY').valueOf())
+            diff_epoch.push(end_epoch[i]-start_epoch[i])
+        }
+        var ctx2 = document.getElementById('myChart2').getContext('2d');
+        var gradientStroke = ctx2.createLinearGradient(1500, 0, 0, 0);
+        gradientStroke.addColorStop(0, "#80b6f4");
+        gradientStroke.addColorStop(0.2, "#94d973");
+        gradientStroke.addColorStop(0.5, "#fad874");
+        gradientStroke.addColorStop(1, "#f49080");
+
+        new Chart(ctx2, {
+            "type": "horizontalBar",
+            "data": {
+                labels: proj_names,
+                datasets: [{
+                    label: '',
+                    data: start_epoch,
+                    backgroundColor: 'rgba(0,0,0,0)',
+                }, {
+                    label: 'Difference',
+                    data: diff_epoch,
+                    "backgroundColor": gradientStroke
+                }]
+            },
+            "options": {
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: "index",
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            console.log(tooltipItem);
+                            return ("Length: " + parseInt(parseInt(tooltipItem.xLabel) / 2592000000) + " months");
+                        }
+                    },
+                    filter: function(tooltipItem) {
+                        return tooltipItem.datasetIndex == 1
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        distribution: 'series',
+                        stacked: true,
+                        ticks: {
+                            autoSkip: true,
+                            beginAtZero: false,
+                            min: 494388800000,
+                            max: 1680325200000,
+                            callback: function(value, index, values) {
+                                x = moment(new Date(value))._d
+                                return ("0" + (x.getUTCMonth() + 1)).slice(-2) + "-" + x.getUTCFullYear()
+                            }
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            lineWidth: .5,
+                            offsetGridLines: false
+                        },
+                        ticks: {
+                            fontSize: 8,
+                            fontStyle: "normal"
+                        }
+                    }]
+                },
+                chartArea: {
+                    backgroundColor: 'rgba(251, 85, 85, 0.4)'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
